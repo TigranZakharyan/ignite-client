@@ -1,0 +1,4 @@
+.bg {
+	background: url("/images/bg.webp") no-repeat;
+	background-size: cover;
+}

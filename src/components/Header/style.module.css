@@ -1,0 +1,28 @@
+@media (max-width: 1280px) {
+	.menu {
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 74px;
+		background-color: white;
+	}
+
+	.hide {
+		transform: translateX(-100%);
+	}
+
+	.show {
+		transform: translateX(0);
+	}
+
+	.show:before {
+		content: "";
+		position: absolute;
+		height: 100vh;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, .3);
+		z-index: -1;
+	}
+}
