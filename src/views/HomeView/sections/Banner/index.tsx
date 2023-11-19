@@ -19,7 +19,7 @@ const Banner = () => {
 					<p>Ներբեռնեք IGNITE վաճառքի անդորրագրերը և վաստակեք միավորներ</p>
 					<p className="mt-3">և ստացեք դրամական պարգևներ</p>
 				</div>
-				<div className="flex gap-8 my-12">
+				<div className="flex flex-wrap justify-center gap-x-8 gap-y-6 my-12">
 					<Button variant="light">Միանալ</Button>
 					<Button variant="transparent">Ավելի մանրամասն</Button>
 				</div>

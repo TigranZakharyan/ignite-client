@@ -29,9 +29,9 @@ const Dropdown = (props: Props) => {
         className="group py-6 px-8 flex gap-8 align-center"
         onClick={toggle}
       >
-        <span className="group-hover:text-gray-light text-2xl">{props.number}</span>
+        <span className="group-hover:text-gray-light lg:text-2xl md:text-xl text-lg">{props.number}</span>
         <div className="flex-1 transition-all overflow-hidden">
-          <h4 className="group-hover:text-gray-light text-2xl uppercase">{props.title}</h4>
+          <h4 className="group-hover:text-gray-light lg:text-2xl md:text-xl text-lg uppercase">{props.title}</h4>
           <div
             ref={contentRef}
             style={{ maxHeight: `${maxHeight}px` }}

@@ -12,7 +12,7 @@ const Questions = () => {
 						questions.map((e) => <Dropdown {...e} key={e.number} />)
 					}
 				</div>
-				<Button variant="dark" className="mx-auto block">sadsa</Button>
+				<Button variant="dark" className="mx-auto block">Հարց տալ</Button>
 			</div>
 		</section>
 	)
