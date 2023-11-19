@@ -25,10 +25,10 @@ const Header = () => {
 				<div className={`xl:col-start-3 xl:row-start-1 col-start-1 col-end-5 row-start-2 py-3 transition ${s.menu} ${isMenuActive ? s.show : s.hide}`}>
 					<ul className="xl:p-0 xl:flex h-full container block justify-center items-center gap-8">
 						<li className="xl:py-0 py-3">
-							<Link href="/" className="hover:text-gray-light transition">Ինչպե՞ս մասնակցել</Link>
+							<Link href="#participate" className="hover:text-gray-light transition">Ինչպե՞ս մասնակցել</Link>
 						</li>
 						<li className="xl:py-0 py-3">
-							<Link href="/" className="hover:text-gray-light transition">Հարցեր եւ պատասխաններ</Link>
+							<Link href="#questions" className="hover:text-gray-light transition">Հարցեր եւ պատասխաններ</Link>
 						</li>
 					</ul>
 				</div>

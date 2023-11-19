@@ -4,7 +4,7 @@ import { questions } from '@/data'
 
 const Questions = () => {
 	return (
-		<section className="py-20 bg-white-soft">
+		<section className="py-20 bg-white-soft scroll-mt-[74px]" id="questions">
 			<div className="container">
 				<Title>ինչպես մասնակցել</Title>
 				<div className="my-8">

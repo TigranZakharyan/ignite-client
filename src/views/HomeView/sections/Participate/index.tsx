@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 const Participate = () => {
 	return (
-		<section className="container py-20">
+		<section className="container py-20 scroll-mt-[74px]" id="participate">
 			<Title>ինչպես մասնակցել</Title>
 
 			<div className="flex justify-center flex-wrap">
@@ -24,7 +24,7 @@ const Participate = () => {
 				{/* section 2 */}
 				<div className="flex max-w-[360px] flex-1 flex-col items-center p-2">
 					<Link href="/" className="hover:opacity-70 w-24 h-24 relative">
-						<Image src="/images/calc.svg" alt="Calc" fill />
+						<Image src="/images/qr.svg" alt="Calc" fill />
 					</Link>
 					<div className="w-full flex flex-1 flex-col text-center">
 						<h3 className="uppercase text-2xl my-3">սնակնեք ձեր կտրոնը</h3>
@@ -36,7 +36,7 @@ const Participate = () => {
 				{/* section 3 */}
 				<div className="flex max-w-[360px] flex-1 flex-col items-center p-2">
 					<Link href="/" className="hover:opacity-70 w-24 h-24 relative">
-						<Image src="/images/calc.svg" alt="Calc" fill />
+						<Image src="/images/wallet.svg" alt="Calc" fill />
 					</Link>
 					<div className="w-full flex flex-1 flex-col text-center">
 						<h3 className="uppercase text-2xl my-3">սնացեք</h3>
