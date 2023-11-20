@@ -2,11 +2,11 @@ import Image from 'next/image'
 
 const ReceiptsView = () => {
 	return (
-		<main className="bg-[#eee] py-16 flex justify-center">
-			<section className="w-auto p-6 bg-white rounded shadow">
+		<main className="bg-[#eee] sm:py-16 pb-16 flex justify-center">
+			<section className="w-full max-w-[540px] p-6 bg-white rounded shadow sm:mx-4">
 				<h3 className="text-3xl text-center my-3.5">Կտրոնի գրանում</h3>
 				<span className="text-sm text-gray-light text-center block">Ուղղեք ձեր տեսախցիկը անդորրագրի QR կոդի վրա</span>
-				<div className="w-[440px] h-[440px] bg-black rounded my-4 relative flex items-center justify-center">
+				<div className="w-full h-[440px] bg-black rounded my-4 relative flex items-center justify-center">
 					<button className="group">
 						<Image 
 							src="/images/power.webp" 
