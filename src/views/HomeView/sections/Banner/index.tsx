@@ -1,8 +1,13 @@
+'use client'
 import Image from 'next/image'
 import s from './style.module.css'
 import { Button } from '@/components'
+import { useContext } from 'react'
+import { ModalsContext } from '@/hooks'
+import Link from 'next/link'
 
 const Banner = () => {
+	const { updateState } = useContext(ModalsContext)
 	return (
 		<section className="relative pt-[74px] bg-text">
 			<video src="/videos/banner.mp4" autoPlay muted className={`lg:absolute md:w-full md:h-auto h-screen z-0 object-cover ${s.bg}`} />
@@ -20,8 +25,8 @@ const Banner = () => {
 					<p className="mt-3">և ստացեք դրամական պարգևներ</p>
 				</div>
 				<div className="flex flex-wrap justify-center gap-x-8 gap-y-6 my-12">
-					<Button variant="light">Միանալ</Button>
-					<Button variant="transparent">Ավելի մանրամասն</Button>
+					<Button variant="light" onClick={() => updateState({signIn: true})}>Միանալ</Button>
+					<Link href="#participate"><Button variant="transparent">Ավելի մանրամասն</Button></Link>
 				</div>
 			</div>
 		</section>

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Plans = () => {
 	return (
-		<section className="container py-20">
+		<section className="container py-20" id="plans">
 			<Title>ստանալ գործակցության պարգեվատիրներ ամսական վաճառքի ծավալի համար</Title>
 			<SubTitle>բոնուս 40 ռուբլի վաճառված յուրաքանչուր ignite v50 սարքի համար (առնվազն 10 միավորի վաճառքի համար)*
 վաճառքի ծավալի համար կոմուլատիվ բոնուս**</SubTitle>

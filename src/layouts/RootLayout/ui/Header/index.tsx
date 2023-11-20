@@ -1,16 +1,21 @@
 'use client'
 import { Block, Logo } from '@/lib/Icons'
-import Image from 'next/image'
 import Link from 'next/link'
 import s from './style.module.css'
 import { MenuButton } from './ui'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ModalsContext } from '@/hooks'
 
 const Header = () => {
+	const { updateState } = useContext(ModalsContext)
 	const [isMenuActive, setIsMenuActive] = useState<boolean>(false)
 
 	const toggleMenu = () => {
 		setIsMenuActive(!isMenuActive)
+	}
+
+	const openSignIn = () => {
+		updateState({ signIn: true })
 	}
 
 	return (
@@ -32,7 +37,7 @@ const Header = () => {
 						</li>
 					</ul>
 				</div>
-				<button className="col-start-4 col-end-4 row-start-1 flex items-center gap-1 stroke-text hover:stroke-gray-light hover:text-gray-light transition">
+				<button className="col-start-4 col-end-4 row-start-1 flex items-center gap-1 stroke-text hover:stroke-gray-light hover:text-gray-light transition" onClick={openSignIn}>
 					<Block />
 					<span>Մուտք</span>
 				</button>

@@ -1,10 +1,14 @@
+'use client'
 import { Button, Title } from '@/components'
+import { ModalsContext } from '@/hooks'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useContext } from 'react'
 
 const Participate = () => {
+	const { updateState } = useContext(ModalsContext)
 	return (
-		<section className="container py-20 scroll-mt-[74px]" id="participate">
+		<section className="container py-20" id="participate">
 			<Title>ինչպես մասնակցել</Title>
 
 			<div className="flex justify-center flex-wrap">
@@ -17,7 +21,11 @@ const Participate = () => {
 					<div className="w-full flex flex-1 flex-col text-center">
 						<h3 className="uppercase text-2xl my-3">վաճառել</h3>
 						<p className="flex-1 my-5 text-sm">IGNITE V50 սարքեր</p>
-						<Button variant="transparent-dark" className="w-[328px] m-auto">միանալ</Button>
+						<Button 
+							variant="transparent-dark" 
+							className="w-[328px] m-auto" 
+							onClick={() => updateState({signIn: true})}
+						>միանալ</Button>
 					</div>
 				</div>
 
@@ -41,7 +49,9 @@ const Participate = () => {
 					<div className="w-full flex flex-1 flex-col text-center">
 						<h3 className="uppercase text-2xl my-3">սնացեք</h3>
 						<p className="flex-1 my-5 text-sm">Պարգևատրում յուրաքանչյուր վաճառված սարքի համար և բոնուս ամսական վաճառքի ծավալի համար</p>
-						<Button variant="transparent-dark" className="w-[328px] m-auto">Ծրագրի պայմաններ</Button>
+						<Link href="#plans">
+							<Button variant="transparent-dark" className="w-[328px] m-auto">Ծրագրի պայմաններ</Button>
+						</Link>
 					</div>
 				</div>
 			</div>

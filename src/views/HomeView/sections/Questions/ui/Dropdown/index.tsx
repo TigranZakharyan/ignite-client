@@ -11,7 +11,7 @@ type Props = {
 const Dropdown = (props: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const contentRef = useRef<HTMLDivElement>(null);
-  const [maxHeight, setMaxHeight] = useState<number | null>(null);
+  const [maxHeight, setMaxHeight] = useState<number>(0);
 
   useEffect(() => {
     if (contentRef.current) {
