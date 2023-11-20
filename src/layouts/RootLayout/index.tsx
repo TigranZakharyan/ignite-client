@@ -14,7 +14,9 @@ const RootLayout = ({ children }: PropsWithChildren) => {
 	return (
 		<ModalsContext.Provider value={{ state: modals, updateState: handleModals }}>
 			<Header />
-			{children}
+			<div className="pt-[74px]">
+				{children}
+			</div>
 			<Footer />
 			<SignInModal />
 		</ModalsContext.Provider>
