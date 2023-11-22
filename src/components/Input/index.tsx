@@ -1,6 +1,6 @@
 import { HTMLAttributes, useId } from 'react'
 
-type Props = HTMLAttributes<HTMLInputElement> & {
+type Props = React.InputHTMLAttributes<HTMLInputElement> & {
 	label: string
 }
 

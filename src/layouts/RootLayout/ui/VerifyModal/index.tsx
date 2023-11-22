@@ -1,27 +1,28 @@
-import { Button, Input, Modal, SubTitle, Title } from '@/components'
+import { Button, Input, Modal } from '@/components'
 import { ModalsContext } from '@/hooks'
 import { useContext } from 'react'
 
-const SignInModal = () => {
+const VerifyModal = () => {
 	const { state, updateState } = useContext(ModalsContext)
 
 	const handleClose = () => {
-		updateState({ signIn: false })
+		updateState({ verify: false })
 	}
 
 	const handleSubmit = () => {
-		updateState({ signIn: false, verify: true })
+		updateState({ verify: false, userData: true })
 	}
 
 	return (
 		<Modal
-			title="Մուտք գործեք կամ գրանցվեք"
-			open={state.signIn}
+			title="Մուտքագրեք կոդը"
+			subTitle="Կոդ ուղարկել ենք համարին"
+			open={state.verify}
 			onClose={handleClose}
 		>
 			<Input 
-				label="Հեռախոսահամար" 
-				placeholder="Մուտքագրեք համարը" 
+				label="Կոդը sms-ից" 
+				placeholder="Մուտքագրեք կոդը" 
 				type="number" 
 			/>
 			<Button 
@@ -33,4 +34,4 @@ const SignInModal = () => {
 	)
 }
 
-export default SignInModal
+export default VerifyModal

@@ -22,7 +22,7 @@ const Header = () => {
 		<header className="h-[74px] w-full fixed z-50 t-0 bg-[white]">
 			<nav className="container h-full grid grid-cols-header grid-rows-auto">
 				<MenuButton className="col-span-1 xl:hidden" onClick={toggleMenu} />
-				<Link href="/" className="col-start-2 col-end-2 hover:fill-gray-light fill-gray-soft transition">
+				<Link href="/" className="col-start-2 col-end-2 hover:fill-gray-dark/[0.9] fill-gray-dark transition">
 					<div className="h-full relative flex items-center">
 						<Logo />
 					</div>

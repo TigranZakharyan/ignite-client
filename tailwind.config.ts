@@ -22,7 +22,9 @@ const config: Config = {
         'text': '#323b41',
         'gray-light': '#a9acb5',
         'gray-soft': '#919191',
-        'white-soft': '#dadada'
+        'gray-dark': '#54565a',
+        'white-soft': '#dadada',
+        'white-light': "#eeeeee"
       },
     },
     container: {
