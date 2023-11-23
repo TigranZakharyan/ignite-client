@@ -3,21 +3,21 @@ import { ModalsContext } from '@/hooks'
 import { useContext } from 'react'
 
 const VerifyModal = () => {
-	const { state, updateState } = useContext(ModalsContext)
+	const { modals, updateModals } = useContext(ModalsContext)
 
 	const handleClose = () => {
-		updateState({ verify: false })
+		updateModals({ verify: false })
 	}
 
 	const handleSubmit = () => {
-		updateState({ verify: false, userData: true })
+		updateModals({ verify: false, userData: true })
 	}
 
 	return (
 		<Modal
 			title="Մուտքագրեք կոդը"
 			subTitle="Կոդ ուղարկել ենք համարին"
-			open={state.verify}
+			open={modals.verify}
 			onClose={handleClose}
 		>
 			<Input 

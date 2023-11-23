@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useContext } from 'react'
 
 const Participate = () => {
-	const { updateState } = useContext(ModalsContext)
+	const { updateModals } = useContext(ModalsContext)
 	return (
 		<section className="container py-20" id="participate">
 			<Title>ինչպես մասնակցել</Title>
@@ -16,7 +16,7 @@ const Participate = () => {
 				{/* section 1 */}
 				<div className="flex max-w-[360px] flex-1 flex-col items-center p-2">
 					<button 
-						onClick={() => updateState({signIn: true})}
+						onClick={() => updateModals({signIn: true})}
 						className="hover:opacity-70 w-24 h-24 relative"
 					>
 						<Image src="/images/calc.svg" alt="Calc" fill />
@@ -27,7 +27,7 @@ const Participate = () => {
 						<Button 
 							variant="transparent-dark" 
 							className="w-[328px] m-auto" 
-							onClick={() => updateState({signIn: true})}
+							onClick={() => updateModals({signIn: true})}
 						>միանալ</Button>
 					</div>
 				</div>

@@ -9,9 +9,9 @@ type Props = PropsWithChildren & {
 
 const Modal = (props: Props) => {
 	return (
-		<div tabIndex={-1} className={`overflow-y-auto overflow-x-hidden fixed p-4 z-50 w-full min-h-full md:inset-0 bg-black/[0.8] ${props.open ? 'block': 'hidden'}`}>
+		<div tabIndex={-1} className={`overflow-y-auto overflow-x-hidden fixed p-4 z-50 w-full min-h-full inset-0 bg-black/[0.8] ${props.open ? 'block': 'hidden'}`}>
 				<div className="relative w-full min-h-full flex justify-center items-center">
-						<div className="relative bg-white rounded-lg shadow p-10 dark:bg-gray-700 w-[500px] mx-auto">
+						<div className="relative bg-white rounded-lg shadow p-10 dark:bg-gray-700 max-w-[500px] w-full mx-auto">
 								{
 									props?.onClose && (
 										<button type="button" className="absolute top-2 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" onClick={props.onClose}>

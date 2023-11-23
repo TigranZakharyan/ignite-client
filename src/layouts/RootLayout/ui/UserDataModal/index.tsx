@@ -3,18 +3,18 @@ import { ModalsContext } from '@/hooks'
 import { useContext, useEffect, useState } from 'react'
 
 const UserDataModal = () => {
-	const { state, updateState } = useContext(ModalsContext)
+	const { modals, updateModals } = useContext(ModalsContext)
 
 	const handleClose = () => {
-		updateState({ userData: false })
+		updateModals({ userData: false })
 	}
 
 	const handleSubmit = () => {
-		updateState({ signIn: false, verify: true })
+		updateModals({ signIn: false, verify: true })
 	}
 
   useEffect(() => {
-    if (state.userData) {
+    if (modals.userData) {
       document.body.classList.add('overflow-hidden');
     } else {
       document.body.classList.remove('overflow-auto');
@@ -23,13 +23,13 @@ const UserDataModal = () => {
     return () => {
       document.body.classList.remove('modal-open');
     };
-  }, [state.userData]);
+  }, [modals.userData]);
 
 	return (
 		<Modal
 			title="Լրացրեք ձեր պրոֆիլը"
 			subTitle="Կայքից օգտվելու համար մուտքագրեք ձեր անձնական տվյալները"
-			open={state.userData}
+			open={modals.userData}
 		>
 			<form>
 				<Input 
@@ -38,10 +38,6 @@ const UserDataModal = () => {
 				/>
 				<Input 
 					label="Ազգանուն" 
-					required
-				/>
-				<Input 
-					label="Հայրանուն" 
 					required
 				/>
 				<Input 

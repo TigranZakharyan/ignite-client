@@ -1,34 +1,48 @@
-import { Button, Input, Modal, SubTitle, Title } from '@/components'
+import { ChangeEvent, FormEvent, useContext, useState } from 'react'
+import { Button, Input, Modal } from '@/components'
 import { ModalsContext } from '@/hooks'
-import { useContext } from 'react'
+import { request } from '@/utils'
 
 const SignInModal = () => {
-	const { state, updateState } = useContext(ModalsContext)
+	const [number, setNumber] = useState<string>('')
+	const { modals, updateModals } = useContext(ModalsContext)
 
 	const handleClose = () => {
-		updateState({ signIn: false })
+		updateModals({ signIn: false })
 	}
 
-	const handleSubmit = () => {
-		updateState({ signIn: false, verify: true })
+	const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
+		e.preventDefault()
+		try {
+			await request.post("/auth/number", { number })
+			updateModals({ signIn: false, verify: true })
+		} catch (err) {
+			console.log(err)
+		}
 	}
+
+	const handleChange = ({ target: { value } }: ChangeEvent<HTMLInputElement>) => setNumber(value)
 
 	return (
 		<Modal
 			title="Մուտք գործեք կամ գրանցվեք"
-			open={state.signIn}
+			open={modals.signIn}
 			onClose={handleClose}
 		>
-			<Input 
-				label="Հեռախոսահամար" 
-				placeholder="Մուտքագրեք համարը" 
-				type="number" 
-			/>
-			<Button 
-				variant="dark" 
-				className="w-full"
-				onClick={handleSubmit}
-			>Շարունակել</Button>
+			<form>
+				<Input 
+					label="Հեռախոսահամար" 
+					placeholder="Մուտքագրեք համարը" 
+					value={number}
+					onChange={handleChange}
+					type="number" 
+				/>
+				<Button 
+					variant="dark" 
+					className="w-full"
+					onClick={handleSubmit}
+				>Շարունակել</Button>
+			</form>
 		</Modal>
 	)
 }

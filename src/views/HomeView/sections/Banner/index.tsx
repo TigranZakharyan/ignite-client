@@ -7,7 +7,7 @@ import { ModalsContext } from '@/hooks'
 import Link from 'next/link'
 
 const Banner = () => {
-	const { updateState } = useContext(ModalsContext)
+	const { updateModals } = useContext(ModalsContext)
 	return (
 		<section className="relative bg-text">
 			<video src="/videos/banner.mp4" autoPlay muted className={`lg:absolute md:w-full md:h-auto h-screen z-0 object-cover ${s.bg}`} />
@@ -25,7 +25,7 @@ const Banner = () => {
 					<p className="mt-3">և ստացեք դրամական պարգևներ</p>
 				</div>
 				<div className="flex flex-wrap justify-center gap-x-8 gap-y-6 my-12">
-					<Button variant="light" onClick={() => updateState({signIn: true})}>Միանալ</Button>
+					<Button variant="light" onClick={() => updateModals({signIn: true})}>Միանալ</Button>
 					<Link href="#participate"><Button variant="transparent">Ավելի մանրամասն</Button></Link>
 				</div>
 			</div>

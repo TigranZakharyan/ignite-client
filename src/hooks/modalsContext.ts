@@ -1,21 +1,21 @@
 import { createContext } from 'react';
 
 export type ModalsState = {
-	state: {
+	modals: {
 		signIn: boolean,
 		verify: boolean,
 		userData: boolean
 	},
-	updateState: (newState?: Partial<ModalsState["state"]>) => unknown
+	updateModals: (newState?: Partial<ModalsState["modals"]>) => unknown
 }
 
 const defaultState: ModalsState = {
-	state: {
+	modals: {
 		signIn: false,
 		verify: false,
 		userData: false
 	},
-  updateState: (newState?: Partial< ModalsState["state"]>) => {},
+  updateModals: (newState?: Partial< ModalsState["modals"]>) => {},
 };
 
 const ModalsContext = createContext<ModalsState>(defaultState)

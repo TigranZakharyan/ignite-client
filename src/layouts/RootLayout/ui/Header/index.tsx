@@ -7,7 +7,7 @@ import { useContext, useState } from 'react'
 import { ModalsContext } from '@/hooks'
 
 const Header = () => {
-	const { updateState } = useContext(ModalsContext)
+	const { updateModals } = useContext(ModalsContext)
 	const [isMenuActive, setIsMenuActive] = useState<boolean>(false)
 
 	const toggleMenu = () => {
@@ -15,7 +15,7 @@ const Header = () => {
 	}
 
 	const openSignIn = () => {
-		updateState({ signIn: true })
+		updateModals({ signIn: true })
 	}
 
 	return (
