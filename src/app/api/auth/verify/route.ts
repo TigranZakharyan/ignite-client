@@ -1,18 +1,37 @@
-import { User } from '@/models'
 import connectDB from '@/utils/connectDB'
+import { User } from '@/models'
 import { NextRequest, NextResponse } from 'next/server'
-import jwt from 'jsonwebtoken'
+import { cookies } from 'next/headers'
+import { Token } from '@/utils'
 
 export async function POST(request: NextRequest) {
-	await connectDB()
-  const body = await request.json()
-	const user = await User.findOne({ number: body.number })
-	const key = process.env.PRIVATE_KEY || 'private'
+	try {
+		await connectDB()
+		const { phoneNumber, code } = await request.json()
+		const user = await User.findOne({ phoneNumber })
 
-	if(user?.code !== body.code) {
-		return NextResponse.json({}, { status: 404 })
+		if(user?.code != code) {
+			return NextResponse.json({success: false}, { status: 400 })
+		}
+		
+		const token = Token.sign(user?._id)
+
+		const cookieStore = cookies()
+		cookieStore.set({
+			name: 'token',
+			value: token,
+			httpOnly: true,
+			secure: true,
+			path: '/'
+		})
+
+		return NextResponse.json({}, {
+			headers: {
+				'Set-Cookie': `token=${token}`
+			}
+		})
+	} catch (err) {
+		return NextResponse.json({ success: false }, { status: 400 })
 	}
-	const token = jwt.sign({number: body.number}, key, { algorithm: 'RS256' })
-	return NextResponse.json({token})
 }
 

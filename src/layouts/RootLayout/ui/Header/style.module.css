@@ -1,12 +1,4 @@
 @media (max-width: 1280px) {
-	.menu {
-		width: 100%;
-		position: absolute;
-		left: 0;
-		top: 74px;
-		background-color: white;
-	}
-
 	.hide {
 		transform: translateX(-100%);
 	}

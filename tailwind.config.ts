@@ -26,6 +26,9 @@ const config: Config = {
         'white-soft': '#dadada',
         'white-light': "#eeeeee"
       },
+      spacing: {
+        header: '74px'
+      }
     },
     container: {
       center: true,

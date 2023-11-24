@@ -1,4 +1,1 @@
-export type UserLogin = {
-	phoneNumber: number
-}
-
+export * from './api'

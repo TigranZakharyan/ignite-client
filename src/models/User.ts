@@ -7,13 +7,16 @@ const userSchema = new Schema({
   marketAddr: String,
   officialName: String,
   marketNumber: String,
-  number: String,
+  phoneNumber: {
+    type: String,
+    required: true
+  },
   code: {
     type: Number,
     required: true
   }
 })
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.models.User || mongoose.model('User', userSchema);
 
 export default User

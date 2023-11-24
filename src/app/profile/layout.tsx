@@ -1,3 +1,4 @@
+'use client'
 import { ProfileLayout } from '@/layouts'
 
 const Profile = () => {

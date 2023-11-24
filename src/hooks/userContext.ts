@@ -1,12 +1,25 @@
+import { UserDataRes } from '@/types';
 import { createContext } from 'react';
 
 export type UserState = {
-	user: any,
+	user: Partial<UserDataRes & {
+		isLoggedIn: boolean
+	}>,
 	updateUser: (newState?: Partial<UserState["user"]>) => unknown
 }
 
 const defaultState: UserState = {
-	user: {},
+	user: {
+		city: '',
+		code: '',
+		firstName: '',
+		lastName: '',
+		marketAddr: '',
+		marketNumber: '',
+		officialName: '',
+		phoneNumber: '',
+		isLoggedIn: false
+	},
   updateUser: (newState?: Partial< UserState["user"]>) => {},
 };
 

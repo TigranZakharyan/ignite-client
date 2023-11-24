@@ -21,7 +21,6 @@ if (!cached) {
 
 async function connectDB() {
   if (cached.conn) {
-    console.log("🚀 Using cached connection")
     return cached.conn
   }
 
@@ -32,7 +31,6 @@ async function connectDB() {
 
     cached.promise = connect(MONGODB_URI!, opts)
       .then((mongoose) => {
-        console.log("✅ New connection established")
         return mongoose
       })
       .catch((error) => {

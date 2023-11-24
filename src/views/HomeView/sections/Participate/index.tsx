@@ -7,6 +7,11 @@ import { useContext } from 'react'
 
 const Participate = () => {
 	const { updateModals } = useContext(ModalsContext)
+
+	const openLogin = () => {
+		updateModals({login: true})
+	}
+
 	return (
 		<section className="container py-20" id="participate">
 			<Title>ինչպես մասնակցել</Title>
@@ -16,7 +21,7 @@ const Participate = () => {
 				{/* section 1 */}
 				<div className="flex max-w-[360px] flex-1 flex-col items-center p-2">
 					<button 
-						onClick={() => updateModals({signIn: true})}
+						onClick={openLogin}
 						className="hover:opacity-70 w-24 h-24 relative"
 					>
 						<Image src="/images/calc.svg" alt="Calc" fill />
@@ -27,7 +32,7 @@ const Participate = () => {
 						<Button 
 							variant="transparent-dark" 
 							className="w-[328px] m-auto" 
-							onClick={() => updateModals({signIn: true})}
+							onClick={openLogin}
 						>միանալ</Button>
 					</div>
 				</div>

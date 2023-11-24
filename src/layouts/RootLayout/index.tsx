@@ -1,31 +1,37 @@
 'use client'
-import { PropsWithChildren, useState } from 'react'
+import { PropsWithChildren, useEffect, useState } from 'react'
 import { Footer, Header, SignInModal, UserDataModal, VerifyModal } from './ui'
 import { ModalsContext, UserContext } from '@/hooks'
 import { ModalsState } from '@/hooks/modalsContext'
 import { UserState } from '@/hooks/userContext'
 
-const RootLayout = ({ children }: PropsWithChildren) => {
-	const [user, setUser] = useState<any>({})
-	const [modals, setModals] = useState<ModalsState["modals"]>({
-		signIn: false,
-		verify: false,
-		userData: false
-	})
+type Props = PropsWithChildren & {
+	user: Partial<UserState["user"]>
+}
 
-	const updateModals = (newState?: Partial<ModalsState["modals"]>) => {
+const RootLayout = ({ children, user }: Props) => {
+	const [userData, setUserData] = useState<UserState["user"]>({...user})
+	const [modals, setModals] = useState<ModalsState["modals"]>({})
+	const updateModals = (newState?: { [key: string]: boolean }) => {
 		setModals({...modals, ...newState})
 	}
 
 	const updateUser = (newState?: Partial<UserState["user"]>) => {
-		setUser({...modals, ...newState})
+		setUserData({...userData, ...newState})
 	}
 
+
+	useEffect(() => {
+		if(userData.isLoggedIn && !userData.firstName) {
+			updateModals({ userData: true })
+		}
+	}, [])
+
 	return (
-		<UserContext.Provider value={{ user, updateUser }}>
+		<UserContext.Provider value={{ user: userData, updateUser }}>
 			<ModalsContext.Provider value={{ modals, updateModals }}>
 				<Header />
-				<div className="pt-[74px]">
+				<div className="pt-header">
 					{children}
 				</div>
 				<Footer />
