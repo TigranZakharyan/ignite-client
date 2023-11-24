@@ -1,11 +1,5 @@
+import { ModalsState } from '@/types';
 import { createContext } from 'react';
-
-export type ModalsState = {
-	modals: {
-		[key: string]: boolean,
-	},
-	updateModals: (newState?: { [key: string]: boolean }) => unknown
-}
 
 const defaultState: ModalsState = {
 	modals: {},

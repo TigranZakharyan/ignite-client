@@ -1,7 +1,7 @@
-import { ReceiptsView } from '@/views'
+import { ProfileView } from '@/views'
 
 const Profile = () => {
-	return <ReceiptsView />
+	return <ProfileView />
 }
 
 export default Profile

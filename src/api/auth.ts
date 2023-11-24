@@ -1,5 +1,5 @@
 import { LoginReq, LoginRes, VerifyReq, VerifyRes } from '@/types'
-import { LocalStorage, request } from '@/utils'
+import { request } from '@/utils'
 
 export const login = async (dto: LoginReq): Promise<LoginRes> => {
 	const { data } = await request.post<LoginRes>("/auth/login", dto)

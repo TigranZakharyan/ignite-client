@@ -24,7 +24,14 @@ const LoginModal = () => {
 	}
 
 	const handleChange = useCallback(({ target }: ChangeEvent<HTMLInputElement>) => {
-		setPhoneNumber(target.value)
+		const { value } = target
+		if (value.startsWith('+374')) {
+      setPhoneNumber(value);
+    } else if (value === '+37') {
+      setPhoneNumber('');
+    } else {
+      setPhoneNumber('+374' + value);
+    }
 	}, [])
 
 	return (
@@ -36,10 +43,10 @@ const LoginModal = () => {
 			<form>
 				<Input 
 					label="Հեռախոսահամար" 
-					placeholder="Մուտքագրեք համարը" 
+					placeholder="+374" 
 					value={phoneNumber}
+					maxLength={12}
 					onChange={handleChange}
-					type="number" 
 				/>
 				<Button 
 					variant="dark" 

@@ -2,8 +2,7 @@
 import { PropsWithChildren, useEffect, useState } from 'react'
 import { Footer, Header, SignInModal, UserDataModal, VerifyModal } from './ui'
 import { ModalsContext, UserContext } from '@/hooks'
-import { ModalsState } from '@/hooks/modalsContext'
-import { UserState } from '@/hooks/userContext'
+import { ModalsState, UserState } from '@/types'
 
 type Props = PropsWithChildren & {
 	user: Partial<UserState["user"]>
