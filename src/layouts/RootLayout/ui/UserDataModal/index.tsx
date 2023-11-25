@@ -22,12 +22,8 @@ const UserDataModal = () => {
     if (modals.userData) {
       document.body.classList.add('overflow-hidden');
     } else {
-      document.body.classList.remove('overflow-auto');
+      document.body.classList.remove('overflow-hidden');
     }
-
-    return () => {
-      document.body.classList.remove('modal-open');
-    };
   }, [modals.userData]);
 
 	const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
