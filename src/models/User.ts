@@ -4,6 +4,7 @@ const userSchema = new Schema({
   firstName: String,
   lastName: String,
   city: String,
+  email: String,
   marketAddr: String,
   officialName: String,
   marketNumber: String,

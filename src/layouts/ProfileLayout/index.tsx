@@ -13,9 +13,9 @@ const ProfileLayout = ({ children }: PropsWithChildren) => {
 
 	return (
 		<main className="py-16 bg-white-light">
-			<div className="container flex gap-11">
+			<div className="container md:flex gap-11 content-start">
 				<SideBar />
-				<div>
+				<div className="flex-1">
 					{children}
 				</div>
 			</div>

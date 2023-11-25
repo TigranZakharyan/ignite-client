@@ -46,6 +46,7 @@ const LoginModal = () => {
 					placeholder="+374" 
 					value={phoneNumber}
 					maxLength={12}
+					minLength={12}
 					onChange={handleChange}
 				/>
 				<Button 

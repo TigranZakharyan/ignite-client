@@ -18,7 +18,8 @@ export type VerifyRes = {
 	marketAddr: string,
 	officialName: string,
 	marketNumber: string,
-	code: string
+	code: string,
+	email: string
 }
 
 export type UserDataReq = {
@@ -38,5 +39,6 @@ export type UserDataRes = {
 	officialName: string,
 	marketNumber: string,
 	phoneNumber: string,
-	code: string
+	code: string,
+	email: string
 }

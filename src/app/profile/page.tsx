@@ -1,7 +1,12 @@
+import { ProfileContentLayout } from '@/layouts'
 import { ProfileView } from '@/views'
 
 const Profile = () => {
-	return <ProfileView />
+	return (
+		<ProfileContentLayout title="Անձնական տվյալներ">
+			<ProfileView />
+		</ProfileContentLayout>
+	)
 }
 
 export default Profile

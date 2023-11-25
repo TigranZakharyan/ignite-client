@@ -25,7 +25,7 @@ const RootLayout = ({ children, user }: Props) => {
 			updateModals({ userData: true })
 		}
 	}, [])
-
+	
 	return (
 		<UserContext.Provider value={{ user: userData, updateUser }}>
 			<ModalsContext.Provider value={{ modals, updateModals }}>

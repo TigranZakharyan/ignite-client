@@ -1,3 +1,6 @@
 export { default as HomeView } from './HomeView'
 export { default as ReceiptsView } from './ReceiptsView'
 export { default as ProfileView } from './ProfileView'
+export { default as ScoresView } from './ScoresView'
+export { default as ProfileReceiptsView } from './ProfileReceiptsView'
+export { default as OrdersView } from './OrdersView'

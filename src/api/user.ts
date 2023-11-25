@@ -2,7 +2,7 @@ import { UserDataReq, UserDataRes } from '@/types';
 import { request } from '@/utils';
 import { AxiosRequestConfig } from 'axios';
 
-export const updateUserData = async (dto: UserDataReq): Promise<UserDataRes> => {
+export const updateUserData = async (dto: Partial<UserDataReq>): Promise<UserDataRes> => {
 	const { data } = await request.post<UserDataRes>("/user", dto)
 	return data
 }
