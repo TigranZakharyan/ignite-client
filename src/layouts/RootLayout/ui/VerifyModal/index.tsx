@@ -5,6 +5,7 @@ import { ChangeEvent, FormEvent, useCallback, useContext, useState } from 'react
 
 const VerifyModal = () => {
 	const [code, setCode] = useState<string>('')
+	const [loading, setLoading] = useState<boolean>(false)
 	const { modals, updateModals } = useContext(ModalsContext)
 	const { user, updateUser } = useContext(UserContext)
 
@@ -16,7 +17,9 @@ const VerifyModal = () => {
 		e.preventDefault()
 		try {
 			if(user?.phoneNumber) {
+				setLoading(true)
 				const data = await verify({ code, phoneNumber: user.phoneNumber })
+				setLoading(false)
 				updateUser({ isLoggedIn: true })
 				if(!data?.firstName) {
 					updateModals({ verify: false, userData: true })
@@ -26,6 +29,7 @@ const VerifyModal = () => {
 				}
 			}
 		} catch (err) {
+			setLoading(false)
 			console.log(err)
 		}
 	}
@@ -52,6 +56,7 @@ const VerifyModal = () => {
 				<Button 
 					variant="dark" 
 					className="w-full"
+					loading={loading}
 					onClick={handleSubmit}
 				>Շարունակել</Button>
 			</form>

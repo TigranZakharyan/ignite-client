@@ -16,6 +16,7 @@ const initialFormState: UserDataReq = {
 const UserDataModal = () => {
 	const { modals, updateModals } = useContext(ModalsContext)
 	const { updateUser } = useContext(UserContext)
+	const [loading, setLoading] = useState<boolean>(false)
 	const [form, setForm] = useState<UserDataReq>(initialFormState)
 
   useEffect(() => {
@@ -29,10 +30,13 @@ const UserDataModal = () => {
 	const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
 			e.preventDefault()
 			try {
+				setLoading(true)
 				const data = await updateUserData(form)
+				setLoading(false)
 				updateModals({ userData: false })
 				updateUser(data)
 			} catch (err) {
+				setLoading(false)
 				console.log(err)
 			}
 	}
@@ -95,6 +99,7 @@ const UserDataModal = () => {
 				<Button 
 					variant="dark" 
 					className="w-full"
+					loading={loading}
 					onClick={handleSubmit}
 				>Շարունակել</Button>
 			</form>

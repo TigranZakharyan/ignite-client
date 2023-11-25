@@ -1,5 +1,9 @@
+'use client'
+import { LineWave, RotatingLines } from 'react-loader-spinner'
+
 type Props = React.HTMLAttributes<HTMLButtonElement> & {
-	variant?: 'transparent' | 'transparent-dark' | 'light' | 'dark'
+	variant?: 'transparent' | 'transparent-dark' | 'light' | 'dark',
+	loading?: boolean
 }
 
 const Button = (props: Props) => {
@@ -12,7 +16,17 @@ const Button = (props: Props) => {
 			${props.variant === 'dark' ? 'hover:bg-text/[0.7] bg-text text-white' : ''}
 			${props.className}
 		`}>
-			{props.children}
+			{props.loading ? 
+			(
+				<div className="flex justify-center">
+					<RotatingLines
+						visible={true}
+						width="32"
+						strokeColor={props.variant === 'dark' ? '#dadada' : '#323b41'}
+					/>
+				</div>
+			) : props.children}
+			
 		</button>
 	)
 }

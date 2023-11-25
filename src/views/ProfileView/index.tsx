@@ -5,6 +5,7 @@ import { ChangeEvent, FormEvent, useContext, useState } from 'react'
 
 const ProfileView = () => {
 	const { user, updateUser } = useContext(UserContext)
+	const [loading, setLoading] = useState<boolean>(false)
 	const [form, setForm] = useState({
 		firstName: user.firstName,
 		lastName: user.lastName,
@@ -57,7 +58,12 @@ const ProfileView = () => {
 				/>
 				<div className="mt-8">
 					<p className="text-xs text-gray-light mb-2">Խնդրում ենք համոզվել, որ ձեր մուտքագրած տեղեկությունները ճիշտ են, որպեսզի մենք կարողանանք կապ հաստատել ձեզ հետ՝ ձեր պարգևը տրամադրելու համար:</p>
-					<Button variant="dark" className="w-full" onClick={handleSubmit}>Պահպանել</Button>
+					<Button 
+						variant="dark" 
+						className="w-full" 
+						loading={loading}
+						onClick={handleSubmit}
+					>Պահպանել</Button>
 				</div>
 			</form>
 		</div>

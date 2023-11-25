@@ -5,6 +5,7 @@ import { login } from '@/api'
 
 const LoginModal = () => {
 	const [phoneNumber, setPhoneNumber] = useState<string>('')
+	const [loading, setLoading] = useState<boolean>(false)
 	const { modals, updateModals } = useContext(ModalsContext)
 	const { updateUser } = useContext(UserContext)
 
@@ -15,10 +16,13 @@ const LoginModal = () => {
 	const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
 		e.preventDefault()
 		try {
+			setLoading(true)
 			await login({ phoneNumber })
+			setLoading(false)
 			updateModals({ login: false, verify: true })
 			updateUser({ phoneNumber })
 		} catch (err) {
+			setLoading(false)
 			console.log(err)
 		}
 	}
@@ -52,6 +56,7 @@ const LoginModal = () => {
 				<Button 
 					variant="dark" 
 					className="w-full"
+					loading={loading}
 					onClick={handleSubmit}
 				>Շարունակել</Button>
 			</form>
