@@ -2,7 +2,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRef, useState } from 'react'
-import Webcam from 'react-webcam'
+// import Webcam from 'react-webcam'
+import QrReader from 'react-qr-scanner'
 
 const ReceiptsView = () => {
   const webcamRef = useRef(null)
@@ -10,6 +11,18 @@ const ReceiptsView = () => {
 	const handleOpenCamera = () => {
 		setIsOpen(true)
 	}
+
+	const handleScan = (data: string) => {
+		console.log(data)
+    if(data !== null) {
+			setIsOpen(false)
+		}
+  }
+
+  const handleScanError = (err: string) => {
+    console.error(err)
+  }
+
 	return (
 		<main className="bg-white-light sm:py-16 pb-16 flex justify-center">
 			<section className="w-full max-w-[540px] p-6 bg-white rounded shadow sm:mx-4">
@@ -18,12 +31,14 @@ const ReceiptsView = () => {
 				<div className="w-full h-[440px] bg-black rounded my-4 relative flex items-center justify-center">
 					{
 						isOpen ? 
-						<Webcam
-							ref={webcamRef}
-							audio={false}
-							screenshotFormat="image/jpeg"
-							className="w-full h-full"
-						/> :
+						(
+							<QrReader
+								delay={100}
+								onError={handleScanError}
+								onScan={handleScan}
+								facingMode="rear"
+							/>
+						) :
 						(
 							<button className="group" onClick={handleOpenCamera}>
 								<Image 
