@@ -15,13 +15,15 @@ const VerifyModal = () => {
 	const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
 		e.preventDefault()
 		try {
-			const data = await verify({ code, phoneNumber: user.phoneNumber })
-			updateUser({ isLoggedIn: true })
-			if(!data?.firstName) {
-				updateModals({ verify: false, userData: true })
-			} else {
-				updateUser(data)
-				updateModals({ verify: false })
+			if(user?.phoneNumber) {
+				const data = await verify({ code, phoneNumber: user.phoneNumber })
+				updateUser({ isLoggedIn: true })
+				if(!data?.firstName) {
+					updateModals({ verify: false, userData: true })
+				} else {
+					updateUser(data)
+					updateModals({ verify: false })
+				}
 			}
 		} catch (err) {
 			console.log(err)
