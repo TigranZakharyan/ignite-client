@@ -1,22 +1,41 @@
+'use client'
 import Image from 'next/image'
+import { useRef, useState } from 'react'
+import Webcam from 'react-webcam'
 
 const ReceiptsView = () => {
+  const webcamRef = useRef(null)
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+	const handleOpenCamera = () => {
+		setIsOpen(true)
+	}
 	return (
 		<main className="bg-white-light sm:py-16 pb-16 flex justify-center">
 			<section className="w-full max-w-[540px] p-6 bg-white rounded shadow sm:mx-4">
 				<h3 className="text-3xl text-center my-3.5">Կտրոնի գրանում</h3>
 				<span className="text-sm text-gray-light text-center block">Ուղղեք ձեր տեսախցիկը անդորրագրի QR կոդի վրա</span>
 				<div className="w-full h-[440px] bg-black rounded my-4 relative flex items-center justify-center">
-					<button className="group">
-						<Image 
-							src="/images/power.webp" 
-							alt="Camera" 
-							width={32} 
-							height={32} 
-							className="group-hover:bg-gray-light bg-white p-1 rounded-full mx-auto" 
-						/>
-						<span className="group-hover:text-gray-light transition text-center text-white text-xs mt-4 block">Միացնել տեսախցիկը</span>
-					</button>
+					{
+						isOpen ? 
+						<Webcam
+							ref={webcamRef}
+							audio={false}
+							screenshotFormat="image/jpeg"
+							className="w-full h-full"
+						/> :
+						(
+							<button className="group" onClick={handleOpenCamera}>
+								<Image 
+									src="/images/power.webp" 
+									alt="Camera" 
+									width={32} 
+									height={32} 
+									className="group-hover:bg-gray-light bg-white p-1 rounded-full mx-auto" 
+								/>
+								<span className="group-hover:text-gray-light transition text-center text-white text-xs mt-4 block">Միացնել տեսախցիկը</span>
+							</button>
+						)
+					}
 				</div>
 				<div className="flex justify-center">
 					<button className="group border-r-[1px] px-4 border-white-soft">
