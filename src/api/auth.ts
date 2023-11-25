@@ -12,3 +12,8 @@ export const verify = async (dto: VerifyReq): Promise<VerifyRes> => {
 	console.log(data)
 	return data
 }
+
+export const logout = async () => {
+	const { data } =await request.post("/auth/logout")
+	return data
+}

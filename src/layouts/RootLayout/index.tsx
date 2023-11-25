@@ -19,6 +19,9 @@ const RootLayout = ({ children, user }: Props) => {
 		setUserData({...userData, ...newState})
 	}
 
+	const deleteUser = () => {
+		setUserData({})
+	}
 
 	useEffect(() => {
 		if(userData.isLoggedIn && !userData.firstName) {
@@ -27,7 +30,7 @@ const RootLayout = ({ children, user }: Props) => {
 	}, [])
 	
 	return (
-		<UserContext.Provider value={{ user: userData, updateUser }}>
+		<UserContext.Provider value={{ user: userData, updateUser, deleteUser }}>
 			<ModalsContext.Provider value={{ modals, updateModals }}>
 				<Header />
 				<div className="pt-header">

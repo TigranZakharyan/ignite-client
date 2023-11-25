@@ -11,5 +11,6 @@ export type UserState = {
 	user: Partial<UserDataRes & {
 		isLoggedIn: boolean
 	}>,
-	updateUser: (newState?: Partial<UserState["user"]>) => unknown
+	updateUser: (newState?: Partial<UserState["user"]>) => unknown,
+	deleteUser: () => void
 }
