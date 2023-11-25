@@ -1,4 +1,5 @@
 'use client'
+import { updateUserData } from '@/api'
 import { Button, Input } from '@/components'
 import { UserContext } from '@/hooks'
 import { ChangeEvent, FormEvent, useContext, useState } from 'react'
@@ -20,6 +21,15 @@ const ProfileView = () => {
 
 	const handleSubmit = async (e: FormEvent<HTMLButtonElement>) => {
 		e.preventDefault()
+		try {
+			setLoading(true)
+			const data = await updateUserData(form)
+			setLoading(false)
+			updateUser(data)
+		} catch (err) {
+			setLoading(false)
+			console.log(err)
+		}
 	}
 
 	return (
