@@ -50,9 +50,9 @@ const Header = () => {
 					) : 
 					(
 						<button className="col-start-4 col-end-4 row-start-1 flex items-center gap-1 stroke-text hover:stroke-gray-light hover:text-gray-light transition" onClick={openLogin}>
-					<Block />
-					<span>Մուտք</span>
-				</button>
+							<Block />
+							<span>Մուտք</span>
+						</button>
 					)
 				}
 				

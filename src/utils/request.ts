@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-	baseURL: 'http://localhost:3000/api',
+	baseURL: `${process.env.API_URL}/api`,
 })
 
 export default request
