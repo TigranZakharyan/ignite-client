@@ -21,7 +21,7 @@ const VerifyModal = () => {
 				if(!data?.firstName) {
 					updateModals({ verify: false, userData: true })
 				} else {
-					updateUser(data)
+					updateUser({...data, isLoggedIn: true})
 					updateModals({ verify: false })
 				}
 			}
