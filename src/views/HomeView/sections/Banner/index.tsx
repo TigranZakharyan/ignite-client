@@ -9,7 +9,7 @@ import Link from 'next/link'
 const Banner = () => {
 	const { updateModals } = useContext(ModalsContext)
 	return (
-		<section className="relative bg-text">
+		<section className="relative bg-text overflow-hidden">
 			<video src="/videos/banner.mp4" autoPlay muted className={`lg:absolute md:w-full md:h-auto h-screen z-0 object-cover ${s.bg}`} />
 
 			<div className="h-full container pt-8 pb-20 flex flex-col items-center justify-center align-center relative z-10">
